@@ -43,7 +43,7 @@ class Block{
     // pool -> for improve the chance of getting more coin
     // pools made up, when you want to mine connect to a pool
     // the reward share between everyone who are in pool based on 
-    // their rate hash(میزان سرمایه ای که هرکس تو این پول گذاشته)
+    // their rate hash
     // memPool -> for mineing we need to do this:
     // listen to all the TRXs for being sure if this trx is valid,
     // then put all of their root hash in a block and find nonce for
@@ -64,73 +64,5 @@ class Block{
 
 }  
 
-// class blockchain{
-
-//     // resposible for initializing our BCH.
-//     // chain is a array of blocks.
-//     // the first block is genesis block,
-//     // and will be created manually.
-//     // set difficalty in blockchain.
-//     constructor(){
-//         this.chain = [this.createGenesisBlock()];
-//         this.difficalty = 5;
-         
-//     }
-
-//     // this fun make a first block of a BCH.
-//     createGenesisBlock(){
-//         return new Block(0, "30-04-2021", "Genesis Block", "0");
-//     }
-
-//     // this fun returns the last block in the BCH.
-//     getLastBlock(){
-//         return this.chain[this.chain.length - 1];
-//     }
-
-//     // this fun will add new block to the BCH.
-//     // first set the previous hash.
-//     // second updateing the hash data.
-//     // add it to the chain.
-//     addBlock(newBlock){
-//         newBlock.previousHash = this.getLastBlock().hash;
-//         newBlock.mineBlock(this.difficalty);
-//         this.chain.push(newBlock);
-//     }
-
-//     // for checking if the chain is valid or not.
-//     // for this topic we need to loop over chain.
-//     // start from 1 cause the first block is not a block.
-//     // 1- check if the preHash-feild of new block is equal to 
-//     // the hash-feild of last block, the chain is valid.
-//     // 2- at the time calc hash of new block and 
-//     // check it with the hash-feild of new block.
-//     isChainValid(){
-//         for(let i = 1; i < this.chain.length; i++){
-//             const currentBlock = this.chain[i];
-//             const previousBlock = this.chain[i-1];
-
-//             if(currentBlock.hash !== currentBlock.calculateHash()){
-//                 return false;
-//             }
-
-//             if(currentBlock.previousHash !== previousBlock.hash){
-//                 return false;
-//             }
-//         }
-//         return true;
-//     }
-
-// }
-
 module.exports.Block = Block;
-
-// let BCH = new blockchain();
-// console.log('mineing block 1...');
-// BCH.addBlock(new Block(1, "30-04-2021", {data: "first Block"}));
-
-// console.log('mineing block 2...');
-// BCH.addBlock(new Block(2, "25-04-2021", {data: "second Block"}));
-
-// console.log(" is chain valid ? " + BCH.isChainValid());
-// console.log(JSON.stringify(BCH, null, 4));
 
