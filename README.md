@@ -1,1 +1,1 @@
-# first-BC-project
+# simple blockchain
